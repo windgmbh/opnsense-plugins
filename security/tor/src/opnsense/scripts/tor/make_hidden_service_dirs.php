@@ -44,4 +44,22 @@ foreach ($services->service->iterateItems() as $service) {
         chgrp($hostdir, '_tor');
         chmod($hostdir, 0700);
     }
+    if (count($service->clients) == 0) {
+        continue;
+    }
+    $authdir = $hostdir . '/' . 'authorized_clients';
+    if (!file_exists($authdir)) {
+        mkdir($authdir, 0700, true);
+        chown($authdir, '_tor');
+        chgrp($authdir), '_tor';
+    }
+    foreach($service->client->IterateItems() as $client) {
+        $name = ((string)$client->name);
+        $authtype = ((string)$client->authtype);
+        $keytype = ((string)$client->keytype);
+        $pubkey = ((string)$client->pubkey);
+        $authfile = $authdir . '/' . $name . '.auth';
+        $authdata = $authtype . ':' . $keytype . ':' $pubkey;
+        file_put_contents($authfile, $authdata);
+    }
 }

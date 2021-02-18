@@ -1,0 +1,32 @@
+<model>
+<mount>//OPNsense/tor/authorizedclient</mount>
+<description>Tor Onion service authorized clients</description>
+<version>1.0.0</version>
+  <items>
+    <client type="ArrayField">
+      <name type="TextField">
+        <Required>Y</Required>
+        <mask>/^[a-z0-9_-]+$/i</mask>
+        <ValidationMessage>The name should only consist of alphanumeric characters, dashes and underscores.</ValidationMessage>
+      </name>
+      <authtype type="OptionField">
+        <default>descriptor</default>
+        <OptionValues>
+          <descriptor>descriptor</descriptor>
+        </OptionValues>
+      </authtype>
+      <keytype type"OptionField">
+        <Required>Y</Required>
+        <default>x25519</default>
+        <OptionValues>
+          <x25519>x25519</x25519>
+        </OptionValues>
+      </keytype>
+      <pubkey>
+        <Required>Y</Required>
+        <mask>/^[A-Z2-7]{52}$/</mask>
+        <ValidationMessage>The public key should be a 52 character uppercase Base32 string.</ValidationMessage>
+      </pubkey>
+    </client> 
+  </items>
+</model>

@@ -1,0 +1,26 @@
+<form>
+  <field>
+    <id>authorizedclient.name</id>
+    <label>Name</label>
+    <type>text</type>
+    <help>The client's name.</help>
+  </field>
+  <field>
+    <id>authorizedclient.authtype</id>
+    <label>Authorization type</label>
+    <type>dropdown</type>
+    <help>Onion service client authorization type.</help>
+  </field>
+  <field>
+    <id>authorizedclient.keytype</id>
+    <label>Key Type</label>
+    <type>dropdown</type>
+    <help>Onion service authroization key type.</help>
+  </field>
+    <field>
+    <id>authorizedclient.pubkey</id>
+    <label>Public Key</label>
+    <type>text</type>
+    <help>Authorization key of the Client.</help>
+  </field>
+</form>

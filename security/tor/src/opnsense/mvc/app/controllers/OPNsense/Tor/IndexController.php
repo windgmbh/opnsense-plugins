@@ -42,6 +42,7 @@ class IndexController extends \OPNsense\Base\IndexController
         $this->view->toracl = $this->getForm("acl_sockspolicy");
         $this->view->hidden_service = $this->getForm("hidden_service");
         $this->view->hidden_service_acl = $this->getForm("hidden_service_acl");
+        $this->view->authorized_clients = $this->getForm("authorized_clients");
         $this->view->relay = $this->getForm("relay");
         $this->view->hidservauth = $this->getForm("hidservauth");
         $this->view->exitpolicy = $this->getForm("acl_exitpolicy");
